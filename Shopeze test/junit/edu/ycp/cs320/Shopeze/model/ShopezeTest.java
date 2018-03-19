@@ -1,4 +1,4 @@
-package edu.ycp.cs320.dhenry5.model;
+package edu.ycp.cs320.Shopeze.model;
 
 import static org.junit.Assert.*;
 
@@ -16,13 +16,21 @@ public class ShopezeTest {
 	}
 	
 	@Test
-	public void testSetMin() {
-		model.setMin(1);
-		assertEquals(1, model.getMin());
+	public void testAddOneItem() {
+		model.populatearray();
+		model.additem("apple");
+		assertEquals("apple", model.getListItem(0))
 	}
 	
-	public void testSetMax() {
-		model.setMax(100);
-		assertEquals(100, model.getMax());
+	public void testAddingMultiple() {
+		model.populatearray();
+		model.additem("apple");
+		model.additem("toothpaste");
+		assertEquals("apple", model.getListItem(0))
+		assertEquals("toothpaste", model.getListItem(1))
+	}
+	
+	public void testCheckUser(){
+		assertTrue(model.usercheck(username, password));
 	}
 }
