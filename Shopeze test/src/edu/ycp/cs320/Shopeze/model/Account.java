@@ -7,8 +7,6 @@ public class Account {
 	private HashMap<String, String> loginInfo;
 	private String username;
 	private String password;
-	private String repeatUsername;
-	private String repeatPassword;
 	private HashMap<GroceryList, String> historyNames;
 	private HashMap<String, GroceryList> history;
 	
@@ -16,50 +14,35 @@ public class Account {
 		
 	}
 	
-	public void setUsername(String name) {
-		this.username = name;
+	// create an account and set username and password
+	public void CreateAccount(String x, String y) {
+		this.loginInfo.put(x,  y);
+		this.username = x;
+		this.password = y;
 	}
 	
-	public void setPassword(String secret) {
-		this.password = secret;
-	}
-	
+	// get the account's username
 	public String getUsername() {
 		return this.username;
 	}
 	
+	// get the account's password
 	public String getPassword() {
 		return this.password;
 	}
 	
-	public void setRepeatUsername(String name) {
-		this.repeatUsername = name;
-	}
-	
-	public void setRepeatPassword(String password) {
-		this.repeatPassword = password;
-	}
-	
-	public boolean confirmUsername() {
+	// check to see if the repeated username and password strings match up with the account's username and passord
+	public boolean confirmAccount(String name, String password) {
 		boolean result = false;
-		if(this.repeatUsername.equals(this.username) == true) {
-			result = true;
+		if(name.equals(this.username) == true) {
+			if(password.equals(this.password) == true) {
+				result = true;
+			}
 		}
 		return result;
 	}
 	
-	public boolean confirmPassword() {
-		boolean result = false;
-		if(this.repeatPassword.equals(this.password) == true) {
-			result = true;
-		}
-		return result;
-	}
-	
-	public void CreateAccount(String x, String y) {
-		this.loginInfo.put(x,  y);
-	}
-	
+	// check to see if username is valid and if the password given matches up with the account's password
 	public boolean VerifyAccount(String Username, String Password) {
 		boolean result = false;
 		Set<String> userNames = this.loginInfo.keySet();
@@ -72,11 +55,13 @@ public class Account {
 		return result;
 	}
 	
-	public void saveHistoryList(String name, GroceryList list) {
-		this.historyNames.put(list, name);
-		this.history.put(name, list);
+	// store the String name for the GroceryList and the GroceryList itself into the HashMap 
+	public void saveHistoryList(String listName, GroceryList list) {
+		this.historyNames.put(list, listName);
+		this.history.put(listName, list);
 	}
 	
+	// get the GroceryList that is associated with the given String name
 	public GroceryList getGroceryListByName(String name) {
 		return this.history.get(name);
 	}

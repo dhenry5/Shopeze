@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class Location {
 	private int coordinateX;
 	private int coordinateY;
+	private Aisle currentAisle;
 	
 	public Location() {
 		
@@ -16,6 +17,14 @@ public class Location {
 	
 	public void setY(int number) {
 		this.coordinateY = number;
+	}
+	
+	public void setCurrentAisle(Aisle current) {
+		this.currentAisle = current;
+	}
+	
+	public Aisle getCurrentAisle() {
+		return this.currentAisle;
 	}
 	
 	public int getX() {

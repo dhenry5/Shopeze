@@ -3,6 +3,8 @@
 	<classpathentry kind="src" path="Shopeze test/src"/>
 	<classpathentry kind="src" path="Shopeze test/main"/>
 	<classpathentry kind="src" path="Shopeze test/junit"/>
+	<classpathentry kind="src" path="sqldemo"/>
+	<classpathentry kind="src" path="test.db"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CS320_Jetty9"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>

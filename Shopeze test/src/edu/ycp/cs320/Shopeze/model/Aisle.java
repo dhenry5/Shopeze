@@ -45,8 +45,8 @@ public class Aisle {
 		return this.Y2coordinate;
 	}
 	
-	public void setAisleInfo(String name, Aisle description) {
-		this.aisleInfo.put(name, description);
+	public void setAisleInfo(String aisleNameAndNumber, Aisle description) {
+		this.aisleInfo.put(aisleNameAndNumber, description);
 	}
 	
 }

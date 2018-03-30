@@ -20,4 +20,16 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>sqldemo</name>
+			<type>2</type>
+			<location>C:/CS320/CS320_Lab04/src/edu/ycp/cs320/sqldemo</location>
+		</link>
+		<link>
+			<name>test.db</name>
+			<type>2</type>
+			<location>C:/CS320/CS320_Lab04/test.db</location>
+		</link>
+	</linkedResources>
 </projectDescription>

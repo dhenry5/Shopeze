@@ -17,6 +17,14 @@ public class Route {
 		this.currentList = items;
 	}
 	
+	public GroceryList getGroceryList() {
+		return this.currentList;
+	}
+	
+	public int getDistance() {
+		return this.distance;
+	}
+	
 	public void setStartLocation(Location start) {
 		this.startLocation = start;
 	}
@@ -33,12 +41,14 @@ public class Route {
 		return this.checkoutLocation;
 	}
 	
+	public void setRouteOrder(Item name, int order) {
+		this.routeOrder.put(name, order);
+	}
+	
 	public void computeDistance(Location start, Location end) {
 		
 	}
 	
-	public int getDistance() {
-		return this.distance;
-	}
+	
 	
 }

@@ -3,7 +3,7 @@ package edu.ycp.cs320.Shopeze.model;
 import java.util.ArrayList;
 
 public class GroceryList {
-	private ArrayList<Item> Items;
+	private ArrayList<Item> Items = new ArrayList<Item>();
 	private double ListPrice;
 	
 	public GroceryList() {
