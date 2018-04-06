@@ -1,49 +1,62 @@
 package edu.ycp.cs320.Shopeze.model;
 
-import java.util.HashMap;
-import java.util.Set;
-
 public class Item {
-	private String itemName;
-	private HashMap<String, Double> itemPrice;
-	private HashMap<String, Location> itemLocation;
-	private HashMap<String, Integer> itemQuantity;
+	private int item_id;
+	private String item_name;
+	private double Price;
+	private Location itemLocation;
+	private int quantity;
 	
 	public Item() {
 		
 	}
 	
-	public void setItemInfo(String name, double price, int amount, Location grid) {
-		this.itemName = name;
-		this.itemPrice.put(name, price);
-		this.itemQuantity.put(name, amount);
-		this.itemLocation.put(name, grid);
+	public void setItemName(String i) {
+		this.item_name = i;
 	}
 	
-	public double getPrice(String itemName) {
-		return itemPrice.get(itemName);
+	public String getItemName() {
+		return this.item_name;
 	}
 	
-	public int getQuantity(String itemName) {
-		return itemQuantity.get(itemName);
+	public void setItemID(int id) {
+		this.item_id = id;
 	}
 	
-	public boolean containsItem(String itemName) {
-		boolean result = false;
-		Set<String> itemPriceNames = itemPrice.keySet();
-		Set<String> itemQuantityNames = itemQuantity.keySet();
-		Set<String> itemLocationNames = itemLocation.keySet();
-		if(itemPriceNames.contains(itemName) == true && itemQuantityNames.contains(itemName) == true && itemLocationNames.contains(itemName) == true) {
-			result = true;
-		}
-		return result;
+	public int getItemID() {
+		return this.item_id;
 	}
 	
-	public void removeItem(Item name) {
-		name.itemPrice.remove(name.itemName);
-		name.itemLocation.remove(name.itemName);
-		name.itemQuantity.remove(name.itemName);
-		name.itemName = null;
+	public void setItemPrice(double p) {
+		this.Price = p;
 	}
+	
+	public double getItemPrice() {
+		return this.Price;
+	}
+	
+	public void setItemQuantity(int num) {
+		this.quantity = num;
+	}
+	
+	public int getItemQuantity() {
+		return this.quantity;
+	}
+	
+	public void setItemLocationX(int here) {
+		this.itemLocation.setX(here);
+	}
+	
+	public void setItemLocationY(int here) {
+		this.itemLocation.setY(here);
+	}
+	
+	public int getItemLocationX() {
+		return this.itemLocation.getX();
+	} 
+	
+	public int getItemLocationY() {
+		return this.itemLocation.getY();
+	} 
 	
 }

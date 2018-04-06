@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="Shopeze test/src"/>
-	<classpathentry kind="src" path="Shopeze test/main"/>
 	<classpathentry kind="src" path="Shopeze test/junit"/>
 	<classpathentry kind="src" path="sqldemo"/>
 	<classpathentry kind="src" path="test.db"/>

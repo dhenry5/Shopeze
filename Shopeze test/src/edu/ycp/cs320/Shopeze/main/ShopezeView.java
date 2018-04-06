@@ -27,25 +27,8 @@ public class ShopezeView extends JPanel {
 		setBackground(MIDNIGHT_RED);
 	}
 	
-	public void setController(GameController controller) {
+	public void setController(ShopezeController controller) {
 		this.controller = controller;
-	}
-	
-	public void startAnimation() {
-		timer.start();
-	}
-
-	protected void handleTimerTick() {
-		if (controller == null) {
-			return;
-		}
-		Square square = model.getSquare();
-		Point mouseLoc = getMousePosition();
-		if (mouseLoc != null) {
-			controller.computeSquareMoveDirection(model, square, mouseLoc.getX(), mouseLoc.getY());
-		}
-		controller.moveSquare(model, square);
-		repaint();
 	}
 	
 	@Override

@@ -1,24 +1,31 @@
 package edu.ycp.cs320.Shopeze.model;
 
-import java.util.HashMap;
-import java.util.Set;
+import java.util.ArrayList;
 
 public class Account {
-	private HashMap<String, String> loginInfo;
+	private int accountID;
 	private String username;
 	private String password;
-	private HashMap<GroceryList, String> historyNames;
-	private HashMap<String, GroceryList> history;
+	private ArrayList<GroceryList> historyList = new ArrayList<GroceryList>();
 	
 	public Account() {
 		
 	}
 	
-	// create an account and set username and password
-	public void CreateAccount(String x, String y) {
-		this.loginInfo.put(x,  y);
+	public void setAccountID(int x) {
+		this.accountID = x;
+	}
+	
+	public int getAccountID() {
+		return this.accountID;
+	}
+	
+	public void setUsername(String x) {
 		this.username = x;
-		this.password = y;
+	}
+	
+	public void setPassword(String x) {
+		this.password = x;
 	}
 	
 	// get the account's username
@@ -26,7 +33,7 @@ public class Account {
 		return this.username;
 	}
 	
-	// get the account's password
+	// get the account's password1
 	public String getPassword() {
 		return this.password;
 	}
@@ -42,28 +49,13 @@ public class Account {
 		return result;
 	}
 	
-	// check to see if username is valid and if the password given matches up with the account's password
-	public boolean VerifyAccount(String Username, String Password) {
-		boolean result = false;
-		Set<String> userNames = this.loginInfo.keySet();
-		
-		if(userNames.contains(Username) == true) {
-			if(this.loginInfo.get(Username).equals(Password)) {
-				result = true;
-			}
-		}
-		return result;
-	}
-	
 	// store the String name for the GroceryList and the GroceryList itself into the HashMap 
-	public void saveHistoryList(String listName, GroceryList list) {
-		this.historyNames.put(list, listName);
-		this.history.put(listName, list);
+	public void addToHistoryList(GroceryList list) {
+		this.historyList.add(list);
 	}
 	
-	// get the GroceryList that is associated with the given String name
-	public GroceryList getGroceryListByName(String name) {
-		return this.history.get(name);
+	public ArrayList<GroceryList> getList(){
+		return this.historyList;
 	}
 	
 }

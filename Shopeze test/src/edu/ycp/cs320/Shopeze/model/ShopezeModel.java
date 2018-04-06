@@ -61,5 +61,4 @@ public class ShopezeModel {
 	public void populateList() {
 		
 	}
-	
 }

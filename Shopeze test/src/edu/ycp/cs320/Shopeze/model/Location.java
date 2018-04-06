@@ -1,7 +1,5 @@
 package edu.ycp.cs320.Shopeze.model;
 
-import java.util.HashMap;
-
 public class Location {
 	private int coordinateX;
 	private int coordinateY;
