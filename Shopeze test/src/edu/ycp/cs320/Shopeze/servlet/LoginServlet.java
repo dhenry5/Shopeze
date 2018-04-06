@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ycp.cs320.Shopeze.controller.LoginController;
+import edu.ycp.cs320.Shopeze.model.Account;
 import edu.ycp.cs320.Shopeze.model.Library;
 
 public class LoginServlet extends HttpServlet {
@@ -31,22 +32,20 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("\nLoginServlet: doPost");
 
 		String errorMessage = null;
-		String name         = null;
-		String pw           = null;
 		boolean validLogin  = false;
-
+		Account login= new Account();
 		// Decode form parameters and dispatch to controller
-		name = req.getParameter("username");
-		pw   = req.getParameter("password");
+		login.setUsername(req.getParameter("inUsername"));
+		login.setPassword(req.getParameter("inPassword"));
 
-		System.out.println("   Name: <" + name + "> PW: <" + pw + ">");			
+		System.out.println("   Name: <" + login.getUsername() + "> PW: <" + login.getPassword() + ">");			
 
-		if (name == null || pw == null || name.equals("") || pw.equals("")) {
+		if (login.getUsername() == null || login.getPassword() == null || login.getUsername().equals("") || login.getPassword().equals("")) {
 			errorMessage = "Please specify both user name and password";
 		} else {
 			model      = new Library();
 			controller = new LoginController(model);
-			validLogin = controller.validateCredentials(name, pw);
+			validLogin = controller.validateCredentials(login.getUsername(), login.getPassword());
 
 			if (!validLogin) {
 				errorMessage = "Username and/or password invalid";
@@ -54,8 +53,8 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		// Add parameters as request attributes
-		req.setAttribute("username", req.getParameter("username"));
-		req.setAttribute("password", req.getParameter("password"));
+		req.setAttribute("Username", req.getParameter("inUsername"));
+		req.setAttribute("Password", req.getParameter("inPassword"));
 
 		// Add result objects as request attributes
 		req.setAttribute("errorMessage", errorMessage);
@@ -66,10 +65,10 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("   Valid login - starting session, redirecting to /index");
 
 			// store user object in session
-			req.getSession().setAttribute("user", name);
+			req.getSession().setAttribute("user", login.getUsername());
 
 			// redirect to /index page
-			resp.sendRedirect(req.getContextPath() + "/index");
+			resp.sendRedirect(req.getContextPath() + "/login.jsp");
 
 			return;
 		}
